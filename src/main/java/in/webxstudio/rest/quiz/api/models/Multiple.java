@@ -5,47 +5,66 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Multiple {
-	private String Question,Option1,Option2,Option3,Answer;
+	private String question,option1,option2,option3,answer;
+	private String subject;
 	
 
 	public Multiple() {}
 	
-	public Multiple(String Question,String Option1,String Option2,String Option3,String Answer) {
-		this.Question=Question;
-		this.Answer=Answer;
-		this.Option1=Option1;
-		this.Option2=Option2;
-		this.Option3=Option3;
+	public Multiple(String question,String option1,String option2,String option3,String answer) {
+		this.question=question;
+		this.option1=option1;
+		this.option2=option2;
+		this.option3=option3;
+		this.answer=answer;
+	}
+	public Multiple(String question,String option1,String option2,String option3,String answer,String subject) {
+		this.question=question;
+		this.option1=option1;
+		this.option2=option2;
+		this.option3=option3;
+		this.answer=answer;
+		this.subject=subject;
 	}
 	
-	public void setQuestion(String question) {
-		Question = question;
-	}
-	public void setOption1(String option1) {
-		Option1 = option1;
-	}
-	public void setOption2(String option2) {
-		Option2 = option2;
-	}
-	public void setOption3(String option3) {
-		Option3 = option3;
-	}
-	public void setAnswer(String answer) {
-		Answer = answer;
-	}
+	
 	public String getQuestion() {
-		return Question;
+		return this.question;
 	}
 	public String getOption1() {
-		return Option1;
+		return this.option1;
 	}
 	public String getOption2() {
-		return Option2;
+		return this.option2;
 	}
 	public String getOption3() {
-		return Option3;
+		return this.option3;
 	}
 	public String getAnswer() {
-		return Answer;
+		return this.answer;
+	}
+	
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public void setOption1(String option1) {
+		this.option1 = option1;
+	}
+	public void setOption2(String option2) {
+		this.option2 = option2;
+	}
+	public void setOption3(String option3) {
+		this.option3 = option3;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 }

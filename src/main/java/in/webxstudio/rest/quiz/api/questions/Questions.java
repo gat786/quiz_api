@@ -11,7 +11,7 @@ import in.webxstudio.rest.quiz.api.models.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("multiple")
-public class Questions {
+public class Questions{
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String QuestionsBase()  {
@@ -37,6 +37,7 @@ public class Questions {
 		data=multiple.GetMultipleData("science_easy_multiple");
 		return data;
 	}
+	
 	
 	
 	

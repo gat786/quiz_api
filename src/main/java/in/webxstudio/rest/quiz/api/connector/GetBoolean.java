@@ -37,11 +37,12 @@ public class GetBoolean {
 			set=statement.executeQuery();
 			while(set.next()) 
 			{
-				dataRetrive=new SingleAnswer();
+				dataRetrive=new SingleAnswer(set.getString(1),set.getString(2));
 				returnData.add(dataRetrive);
 			}
 			connect.close();
 			System.out.println("Data retrieved Successfully");
+			data=returnData;
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
