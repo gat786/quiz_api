@@ -5,27 +5,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class SingleAnswer {
 	String question;
-	Boolean answer;
+	String answer;
 	String subject;
 	
 	public SingleAnswer(){}
 	
 	public SingleAnswer(String question,String answer){
 		this.question=question;
-		if (answer == "true") {
-			this.answer=true;
-		}
-		else
-			this.answer=false;
+		this.answer=answer;
 	}
 	
 	public SingleAnswer(String question,String answer,String subject){
 		this.question=question;
-		if (answer == "true") {
-			this.answer=true;
-		}
-		else
-			this.answer=false;
+		this.answer=answer;
 		this.subject=subject;
 	}
 	
@@ -33,7 +25,7 @@ public class SingleAnswer {
 		this.question = question;
 	}
 
-	public void setAnswer(Boolean answer) {
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 
@@ -49,7 +41,7 @@ public class SingleAnswer {
 		return this.question;
 	}
 	
-	public Boolean getAnswer() {
+	public String getAnswer() {
 		return this.answer;
 	}
 
