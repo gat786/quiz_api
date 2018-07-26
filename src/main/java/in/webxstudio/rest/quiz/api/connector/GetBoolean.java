@@ -15,13 +15,9 @@ public class GetBoolean {
 	private Connection connect = null;
 	
 	private ResultSet set;
-	
-	private String user;
-	private String passwd;
+
 	
 	public GetBoolean(){
-		user = "ganesh";
-		passwd = "123456";
 	}
 	
 	public List<SingleAnswer> getBoolean(String table_name){
@@ -30,7 +26,7 @@ public class GetBoolean {
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", user, passwd);
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			SingleAnswer dataRetrive;
 			List<SingleAnswer> returnData=new ArrayList<>();
 			PreparedStatement statement=connect.prepareStatement("select * from "+table_name+";");

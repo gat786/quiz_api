@@ -13,12 +13,8 @@ public class GetMultiple {
 		
 		private ResultSet set;
 		
-		private String user;
-		private String passwd;
 		
 		public GetMultiple(){
-			user = "ganesh";
-			passwd = "123456";
 		}
 		
 		public List<Multiple> GetMultipleData(String table_name)
@@ -28,7 +24,7 @@ public class GetMultiple {
 			try 
 			{
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", user, passwd);
+				connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 				//data=getData("science_easy_multiple");
 				Multiple dataRetrive;
 				List<Multiple> returnData=new ArrayList<>();

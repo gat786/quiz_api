@@ -12,12 +12,8 @@ public class SendBoolean {
 	private Connection connect = null;
 	
 	
-	private String user;
-	private String passwd;
 	
 	public SendBoolean(){
-		user = "ganesh";
-		passwd = "123456";
 	}
 	
 	public SingleAnswer sendSuggestion(String questionGet,String answer,String subject) {
@@ -25,7 +21,7 @@ public class SendBoolean {
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", user, passwd);
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			PreparedStatement statement=connect.prepareStatement("insert into suggestsingle values (?,?,?);");
 			statement.setString(1, questionGet);
 			statement.setString(2, answer);

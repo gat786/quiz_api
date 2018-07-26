@@ -12,12 +12,7 @@ public class SendMultiple {
 	private Connection connect = null;
 	
 	
-	private String user;
-	private String passwd;
-	
 	public SendMultiple(){
-		user = "ganesh";
-		passwd = "123456";
 	}
 	
 	public Multiple sendSuggestion(String questionGet,String option1 ,String option2,String option3,String answer,String subject) {
@@ -25,7 +20,7 @@ public class SendMultiple {
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", user, passwd);
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			PreparedStatement statement=connect.prepareStatement("insert into suggestmultiple values (?,?,?,?,?,?);");
 			statement.setString(1, questionGet);
 			statement.setString(2, option1);
