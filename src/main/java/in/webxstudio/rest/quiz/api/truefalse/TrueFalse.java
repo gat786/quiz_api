@@ -14,13 +14,13 @@ public class TrueFalse {
 	@Produces(MediaType.TEXT_HTML)
 	public String QuestionsBase() {
 		String index="<h3>You're in Multiple Choice Home Select Your Subject</h3> "
-				+ "		<br>For Science <a href='/api/webapi/boolean/science'>Click here</a>"
-				+ "		<br>For History <a href='/api/webapi/boolean/history'>Click here</a>"
-				+ "		<br>For Geography <a href='/api/webapi/boolean/geography'>Click here</a>"
-				+ "		<br>For Computer Science <a href='/api/webapi/boolean/computers'>Click here</a>"
-				+ "		<br>For Mythology <a href='/api/webapi/boolean/mythology'>Click here</a>"
-				+ "		<br>For Sports <a href='/api/webapi/boolean/sports'>Click here</a>"
-				+ "		<br>For Films <a href='/api/webapi/boolean/films'>Click here</a>";
+				+ "		<br>For Science <a href='/webapi/boolean/science'>Click here</a>"
+				+ "		<br>For History <a href='/webapi/boolean/history'>Click here</a>"
+				+ "		<br>For Geography <a href='/webapi/boolean/geography'>Click here</a>"
+				+ "		<br>For Computer Science <a href='/webapi/boolean/computers'>Click here</a>"
+				+ "		<br>For Mythology <a href='/webapi/boolean/mythology'>Click here</a>"
+				+ "		<br>For Sports <a href='/webapi/boolean/sports'>Click here</a>"
+				+ "		<br>For Films <a href='/webapi/boolean/films'>Click here</a>";
 		return index;
 	}
 	

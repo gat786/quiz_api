@@ -16,13 +16,13 @@ public class Questions{
 	@Produces(MediaType.TEXT_HTML)
 	public String QuestionsBase()  {
 		String index="<h3>You're in Multiple Choice Home Select Your Subject</h3> "
-				+ "		<br>For Science <a href='/api/webapi/multiple/science'>Click here</a>"
-				+ "		<br>For History <a href='/api/webapi/multiple/history'>Click here</a>"
-				+ "		<br>For Geography <a href='/api/webapi/multiple/geography'>Click here</a>"
-				+ "		<br>For Computer Science <a href='/api/webapi/multiple/computers'>Click here</a>"
-				+ "		<br>For Mythology <a href='/api/webapi/multiple/mythology'>Click here</a>"
-				+ "		<br>For Sports <a href='/api/webapi/multiple/sports'>Click here</a>"
-				+ "		<br>For Films <a href='/api/webapi/multiple/films'>Click here</a>";
+				+ "		<br>For Science <a href='/webapi/multiple/science'>Click here</a>"
+				+ "		<br>For History <a href='/webapi/multiple/history'>Click here</a>"
+				+ "		<br>For Geography <a href='/webapi/multiple/geography'>Click here</a>"
+				+ "		<br>For Computer Science <a href='/webapi/multiple/computers'>Click here</a>"
+				+ "		<br>For Mythology <a href='/webapi/multiple/mythology'>Click here</a>"
+				+ "		<br>For Sports <a href='/webapi/multiple/sports'>Click here</a>"
+				+ "		<br>For Films <a href='/webapi/multiple/films'>Click here</a>";
 		return index;
 	}
 	
