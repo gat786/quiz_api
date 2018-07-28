@@ -12,18 +12,15 @@ public class RegisterUser {
 	private Connection connect = null;
 	
 	
-	private String user;
-	private String passwd;
 	
 	public RegisterUser(){
-		user = "ganesh";
-		passwd = "123456";
+		
 	}
 	
 	public UserProfile saveDataToBase(UserProfile userData) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", user, passwd);
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			PreparedStatement statement=connect.prepareStatement("insert into users (username,email,password) values(?,?,?);");
 			statement.setString(1, userData.getUsername());
 			statement.setString(2, userData.getEmail());

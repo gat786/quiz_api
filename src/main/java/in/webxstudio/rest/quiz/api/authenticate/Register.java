@@ -1,4 +1,4 @@
-package in.webxstudio.rest.quiz.api.register;
+package in.webxstudio.rest.quiz.api.authenticate;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

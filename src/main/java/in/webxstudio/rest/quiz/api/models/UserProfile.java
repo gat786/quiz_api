@@ -8,11 +8,18 @@ public class UserProfile {
 	
 	public UserProfile(){}
 	
+	public UserProfile(String username,String password) {
+		this.username=username;
+		this.password=password;
+	}
+	
 	public UserProfile(String email,String username,String password){
 		this.email=email;
 		this.username=username;
 		this.password=password;
 	}
+
+
 
 	public String getEmail() {
 		return email;
