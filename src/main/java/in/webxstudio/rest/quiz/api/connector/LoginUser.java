@@ -26,8 +26,8 @@ public class LoginUser {
 		Boolean result;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
+			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from users where username=+\""+givenData.getUsername()+"\";");
 			ResultSet rs=statement.executeQuery();
 			UserProfile retrieved=new UserProfile();
