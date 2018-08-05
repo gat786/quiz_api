@@ -19,8 +19,8 @@ public class SaveScore {
 	public String SaveScoreToDb(ScoreModel score) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
+			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from score where username=\""+score.getUserName()+"\";");
 			ResultSet result=statement.executeQuery();
 			if (result.wasNull()) 
@@ -52,8 +52,8 @@ public class SaveScore {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
+			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
+			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("SELECT * FROM score ORDER BY user_score DESC LIMIT 10;");
 			ResultSet result=statement.executeQuery();
 			while(result.next()) {
