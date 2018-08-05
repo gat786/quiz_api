@@ -30,7 +30,7 @@ public class SaveScore {
 				scoreRetrieved.setScore(result.getInt(2));
 			}
 			int updatedScore=scoreRetrieved.getScore()+score.getScore();
-			statement=connect.prepareStatement("UPDATE score SET user_score="+updatedScore+" where username=\""+score.getUserName()+"\";");
+			statement=connect.prepareStatement("UPDATE score SET score="+updatedScore+" where username=\""+score.getUserName()+"\";");
 			statement.executeUpdate();
 		}
 		catch(SQLException | ClassNotFoundException e) {
@@ -45,7 +45,7 @@ public class SaveScore {
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			PreparedStatement statement=connect.prepareStatement("SELECT * FROM score ORDER BY user_score DESC LIMIT 10;");
+			PreparedStatement statement=connect.prepareStatement("SELECT * FROM score ORDER BY score DESC LIMIT 10;");
 			ResultSet result=statement.executeQuery();
 			while(result.next()) {
 				ScoreModel score=new ScoreModel();
