@@ -21,11 +21,4 @@ public class Login {
 		result=logger.LoginWithData(profile);
 		return result;
 	}
-	
-	@Path("getscore")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public UserProfile LoginUserAndGetScore() {
-		return new UserProfile();
-	}
 }
