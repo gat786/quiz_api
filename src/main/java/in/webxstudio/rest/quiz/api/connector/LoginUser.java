@@ -22,8 +22,8 @@ public class LoginUser {
 	
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Boolean LoginWithData(UserProfile givenData) {
-		Boolean result;
+	public String LoginWithData(UserProfile givenData) {
+		String result;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
@@ -36,14 +36,14 @@ public class LoginUser {
 				retrieved.setPassword(rs.getString(4));
 			}
 			if (retrieved.getPassword().equals(givenData.getPassword())) 
-				result=true;			
+				result="success";			
 			else
-				result=false;
+				result="failed";
 			
 		}
 		catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-			result=false;
+			result="UNNOTEXIST";
 		}
 		return result;
 	}
