@@ -34,7 +34,7 @@ public class SaveScore {
 				 PreparedStatement preparedStmt = connect.prepareStatement(query);
 			     preparedStmt.setString (1, score.getUserName());
 			     preparedStmt.setInt (2, score.getScore());
-			     preparedStmt.executeQuery();
+			     preparedStmt.execute();
 			}
 			else 
 			{
