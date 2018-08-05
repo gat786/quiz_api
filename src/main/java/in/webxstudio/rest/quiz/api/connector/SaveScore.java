@@ -22,13 +22,13 @@ public class SaveScore {
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			PreparedStatement statement=connect.prepareStatement("select * from score where username=\""+score.getUserName()+"\";");
 			ResultSet result=statement.executeQuery();
-			System.out.println(result.toString());
 			ScoreModel scoreRetrieved=new ScoreModel();
 			while(result.next()) 
 			{
 				scoreRetrieved.setUserName(result.getString(1));
 				scoreRetrieved.setScore(result.getInt(2));
 			}
+			System.out.println(scoreRetrieved.getScore());
 			int updatedScore=scoreRetrieved.getScore()+score.getScore();
 			statement=connect.prepareStatement("UPDATE score SET score="+updatedScore+" where username=\""+score.getUserName()+"\";");
 			statement.executeUpdate();
