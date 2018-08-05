@@ -15,6 +15,7 @@ public class SaveScore {
 	private Connection connect = null;
 	public SaveScore(){}
 
+	@SuppressWarnings("resource")
 	public String SaveScoreToDb(ScoreModel score) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -22,14 +23,23 @@ public class SaveScore {
 			connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from score where username=\""+score.getUserName()+"\";");
 			ResultSet result=statement.executeQuery();
-			ScoreModel scoreRetrieved=new ScoreModel();
-			while(result.next()) {
-				scoreRetrieved.setUserName(result.getString(1));
-				scoreRetrieved.setScore(result.getInt(2));
+			if (result.wasNull()) 
+			{
+				statement=connect.prepareStatement("insert into score values("+score.getUserName()+","+score.getScore()+");");
+				statement.executeUpdate();
 			}
-			int updatedScore=scoreRetrieved.getScore()+score.getScore();
-			statement=connect.prepareStatement("UPDATE score SET user_score="+updatedScore+" where username=\""+score.getUserName()+"\";");
-			statement.executeUpdate();
+			else 
+			{
+				ScoreModel scoreRetrieved=new ScoreModel();
+				while(result.next()) 
+				{
+					scoreRetrieved.setUserName(result.getString(1));
+					scoreRetrieved.setScore(result.getInt(2));
+				}
+				int updatedScore=scoreRetrieved.getScore()+score.getScore();
+				statement=connect.prepareStatement("UPDATE score SET user_score="+updatedScore+" where username=\""+score.getUserName()+"\";");
+				statement.executeUpdate();
+			}
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
