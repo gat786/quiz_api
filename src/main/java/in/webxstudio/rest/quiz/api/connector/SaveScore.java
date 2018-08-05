@@ -28,10 +28,20 @@ public class SaveScore {
 				scoreRetrieved.setUserName(result.getString(1));
 				scoreRetrieved.setScore(result.getInt(2));
 			}
-			System.out.println(scoreRetrieved.getScore());
-			int updatedScore=scoreRetrieved.getScore()+score.getScore();
-			statement=connect.prepareStatement("UPDATE score SET score="+updatedScore+" where username=\""+score.getUserName()+"\";");
-			statement.executeUpdate();
+			if (score.getScore()==0) 
+			{
+				 String query="insert into score values ( ? , ? );";
+				 PreparedStatement preparedStmt = connect.prepareStatement(query);
+			     preparedStmt.setString (1, score.getUserName());
+			     preparedStmt.setInt (2, score.getScore());
+			     preparedStmt.executeQuery();
+			}
+			else 
+			{
+				int updatedScore=scoreRetrieved.getScore()+score.getScore();
+				statement=connect.prepareStatement("UPDATE score SET score="+updatedScore+" where username=\""+score.getUserName()+"\";");
+				statement.executeUpdate();
+			}
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
