@@ -22,6 +22,7 @@ public class SaveScore {
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
 			PreparedStatement statement=connect.prepareStatement("select * from score where username=\""+score.getUserName()+"\";");
 			ResultSet result=statement.executeQuery();
+			System.out.println(result);
 			ScoreModel scoreRetrieved=new ScoreModel();
 			while(result.next()) 
 			{
