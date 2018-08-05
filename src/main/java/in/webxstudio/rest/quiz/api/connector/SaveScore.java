@@ -20,26 +20,17 @@ public class SaveScore {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from score where username=\""+score.getUserName()+"\";");
 			ResultSet result=statement.executeQuery();
-			if (result.wasNull()) 
+			ScoreModel scoreRetrieved=new ScoreModel();
+			while(result.next()) 
 			{
-				statement=connect.prepareStatement("insert into score values("+score.getUserName()+","+score.getScore()+");");
-				statement.executeUpdate();
+				scoreRetrieved.setUserName(result.getString(1));
+				scoreRetrieved.setScore(result.getInt(2));
 			}
-			else 
-			{
-				ScoreModel scoreRetrieved=new ScoreModel();
-				while(result.next()) 
-				{
-					scoreRetrieved.setUserName(result.getString(1));
-					scoreRetrieved.setScore(result.getInt(2));
-				}
-				int updatedScore=scoreRetrieved.getScore()+score.getScore();
-				statement=connect.prepareStatement("UPDATE score SET user_score="+updatedScore+" where username=\""+score.getUserName()+"\";");
-				statement.executeUpdate();
-			}
+			int updatedScore=scoreRetrieved.getScore()+score.getScore();
+			statement=connect.prepareStatement("UPDATE score SET user_score="+updatedScore+" where username=\""+score.getUserName()+"\";");
+			statement.executeUpdate();
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -53,7 +44,6 @@ public class SaveScore {
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("SELECT * FROM score ORDER BY user_score DESC LIMIT 10;");
 			ResultSet result=statement.executeQuery();
 			while(result.next()) {
