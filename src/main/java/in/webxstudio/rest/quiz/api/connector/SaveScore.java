@@ -67,8 +67,8 @@ public class SaveScore {
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			return topTen;
 		}
-		return topTen;
 	}
 	
 
