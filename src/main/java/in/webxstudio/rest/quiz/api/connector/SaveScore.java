@@ -28,7 +28,7 @@ public class SaveScore {
 				scoreRetrieved.setUserName(result.getString(1));
 				scoreRetrieved.setScore(result.getInt(2));
 			}
-			if (score.getScore()==0) 
+			if (scoreRetrieved.getScore()==0) 
 			{
 				 String query="insert into score values ( ? , ? );";
 				 PreparedStatement preparedStmt = connect.prepareStatement(query);
@@ -67,8 +67,8 @@ public class SaveScore {
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			return topTen;
 		}
-		return topTen;
 	}
 	
 
