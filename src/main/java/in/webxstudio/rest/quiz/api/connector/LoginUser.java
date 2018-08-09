@@ -30,15 +30,16 @@ public class LoginUser {
 			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from users where username=+\""+givenData.getUsername()+"\";");
 			ResultSet rs=statement.executeQuery();
-			UserProfile retrieved=new UserProfile();
+			String retrievedUserName="",retrievedPassword="";
 			while(rs.next()) {
-				retrieved.setUsername(rs.getString(2));
-				retrieved.setPassword(rs.getString(4));
+				retrievedUserName=rs.getString(2);
+				retrievedPassword=rs.getString(4);
 			}
-			if (retrieved.getPassword().equals(givenData.getPassword())) 
-				result=true;			
-			else
-				result=false;
+			
+				if (retrievedPassword.equals(givenData.getPassword())) 
+					result=true;			
+				else
+					result=false;
 			
 		}
 		catch (SQLException | ClassNotFoundException e) {
