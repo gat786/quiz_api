@@ -21,7 +21,7 @@ public class SendMultiple {
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			PreparedStatement statement=connect.prepareStatement("insert into suggestmultiple values (?,?,?,?,?,?);");
+			PreparedStatement statement=connect.prepareStatement("insert into suggestmultiple (question,option1,option2,option3,answer,subject) values (?,?,?,?,?,?);");
 			statement.setString(1, questionGet);
 			statement.setString(2, option1);
 			statement.setString(3, option2);
