@@ -22,7 +22,7 @@ public class SendBoolean {
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			PreparedStatement statement=connect.prepareStatement("insert into suggestsingle values (?,?,?);");
+			PreparedStatement statement=connect.prepareStatement("insert into suggestsingle (question,answer,subject) values (?,?,?);");
 			statement.setString(1, questionGet);
 			statement.setString(2, answer);
 			statement.setString(3, subject);
