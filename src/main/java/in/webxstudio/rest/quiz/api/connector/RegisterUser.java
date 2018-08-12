@@ -17,7 +17,7 @@ public class RegisterUser {
 		
 	}
 	
-	public UserProfile saveDataToBase(UserProfile userData) {
+	public Boolean saveDataToBase(UserProfile userData) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
@@ -26,13 +26,13 @@ public class RegisterUser {
 			statement.setString(2, userData.getEmail());
 			statement.setString(3, userData.getPassword());
 			statement.executeUpdate();
+			return true;
 			
 		}
 		catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			return false;
 		}
-		
-		return userData;
 	}
 	
 }
