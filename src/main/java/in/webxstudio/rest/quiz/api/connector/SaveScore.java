@@ -25,8 +25,8 @@ public class SaveScore {
 			ScoreModel scoreRetrieved=new ScoreModel();
 			while(result.next()) 
 			{
-				scoreRetrieved.setUserName(result.getString(1));
-				scoreRetrieved.setScore(result.getInt(2));
+				scoreRetrieved.setUserName(result.getString(2));
+				scoreRetrieved.setScore(result.getInt(3));
 			}
 			if (scoreRetrieved.getScore()==0) 
 			{
