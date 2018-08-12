@@ -30,7 +30,7 @@ public class SaveScore {
 			}
 			if (scoreRetrieved.getScore()==0) 
 			{
-				 String query="insert into score values ( ? , ? );";
+				 String query="insert into score (username,score) values ( ? , ? );";
 				 PreparedStatement preparedStmt = connect.prepareStatement(query);
 			     preparedStmt.setString (1, score.getUserName());
 			     preparedStmt.setInt (2, score.getScore());
