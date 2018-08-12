@@ -59,8 +59,8 @@ public class SaveScore {
 			ResultSet result=statement.executeQuery();
 			while(result.next()) {
 				ScoreModel score=new ScoreModel();
-				score.setUserName(result.getString(1));
-				score.setScore(result.getInt(2));
+				score.setUserName(result.getString(2));
+				score.setScore(result.getInt(3));
 				topTen.add(score);
 			}
 			return topTen;
