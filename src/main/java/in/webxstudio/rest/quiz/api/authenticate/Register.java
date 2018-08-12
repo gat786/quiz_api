@@ -14,12 +14,12 @@ import in.webxstudio.rest.quiz.api.models.UserProfile;
 public class Register {
 
 	@POST
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public UserProfile resgisterUser(UserProfile unregisteredUser) {
 		UserProfile newProfile=unregisteredUser;
 		RegisterUser registerer=new RegisterUser();
-		registerer.saveDataToBase(newProfile);
-		return newProfile;
+		boolean result = registerer.saveDataToBase(newProfile);
+		return result;
 	}
 }
