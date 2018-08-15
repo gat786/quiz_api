@@ -16,10 +16,10 @@ public class Register {
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean resgisterUser(UserProfile unregisteredUser) {
+	public String resgisterUser(UserProfile unregisteredUser) {
 		UserProfile newProfile=unregisteredUser;
 		RegisterUser registerer=new RegisterUser();
-		boolean result = registerer.saveDataToBase(newProfile);
+		String result = registerer.saveDataToBase(newProfile);
 		return result;
 	}
 }
