@@ -53,7 +53,7 @@ public class RegisterUser {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName+"?useSSl=false", DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			String sql="select id from users where "+field+"="+value+";";
+			String sql="select id from users where "+field+"=\""+value+"\";";
 			Statement statement=connect.createStatement();
 			ResultSet set=statement.executeQuery(sql);
 			int count=0;
