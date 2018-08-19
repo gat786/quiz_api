@@ -15,14 +15,10 @@ import in.webxstudio.rest.quiz.api.models.UserProfile;
 
 public class LoginUser {
 	
-	private Connection connect = null;
-	
-	public LoginUser(){}
-	
-	
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Boolean LoginWithData(UserProfile givenData) {
+		Connection connect = null;
 		Boolean result;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,9 +26,9 @@ public class LoginUser {
 			//connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/trivia_db", "ganesh", "123456");
 			PreparedStatement statement=connect.prepareStatement("select * from users where username=+\""+givenData.getUsername()+"\";");
 			ResultSet rs=statement.executeQuery();
-			String retrievedUserName="",retrievedPassword="";
-			while(rs.next()) {
-				retrievedUserName=rs.getString(2);
+			String retrievedPassword="";
+			while(rs.next()) 
+			{
 				retrievedPassword=rs.getString(4);
 			}
 			

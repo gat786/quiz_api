@@ -12,15 +12,10 @@ import java.util.List;
 import java.util.Random;
 
 public class GetBoolean {
-	private Connection connect = null;
-	
-	private ResultSet set;
 
-	
-	public GetBoolean(){
-	}
-	
 	public List<SingleAnswer> getBoolean(String table_name){
+		Connection connect = null;
+		ResultSet set;
 		List<SingleAnswer> data=new ArrayList<>();
 		
 		try 

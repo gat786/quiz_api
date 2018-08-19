@@ -9,11 +9,8 @@ import in.webxstudio.rest.quiz.api.models.*;
 
 public class SendMultiple {
 
-	private Connection connect = null;
-	
-	
-	public SendMultiple(){
-	}
+	private Connection connect;
+
 	
 	public Multiple sendSuggestion(String questionGet,String option1 ,String option2,String option3,String answer,String subject) {
 		Multiple question=new Multiple();

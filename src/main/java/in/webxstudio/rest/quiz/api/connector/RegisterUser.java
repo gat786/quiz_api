@@ -10,16 +10,9 @@ import java.sql.Statement;
 import in.webxstudio.rest.quiz.api.models.UserProfile;
 
 public class RegisterUser {
-
-	private Connection connect = null;
-	
-	
-	
-	public RegisterUser(){
-		
-	}
 	
 	public String saveDataToBase(UserProfile userData) {
+		Connection connect = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName+"?useSSl=false", DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
@@ -50,6 +43,7 @@ public class RegisterUser {
 	}
 	
 	public Boolean checkDuplicate(String value,String field) {
+		Connection connect = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName+"?useSSl=false", DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);

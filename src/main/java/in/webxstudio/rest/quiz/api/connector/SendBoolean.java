@@ -8,13 +8,7 @@ import java.sql.SQLException;
 import in.webxstudio.rest.quiz.api.models.SingleAnswer;
 
 public class SendBoolean {
-
-	private Connection connect = null;
-	
-	
-	
-	public SendBoolean(){
-	}
+	private Connection connect;
 	
 	public SingleAnswer sendSuggestion(String questionGet,String answer,String subject) {
 		SingleAnswer postedQuestion=null;
