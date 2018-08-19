@@ -1,7 +1,6 @@
 # Quiz App Rest API 
 
 [![Build Status](https://travis-ci.org/gat786/quiz_api.svg?branch=master)](https://travis-ci.org/gat786/quiz_api)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/67269fa5831a4b1999c91bf337130bcf)](https://www.codacy.com/project/gat786/quiz_api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gat786/quiz_api&amp;utm_campaign=Badge_Grade_Dashboard)
 
 This is a restful API that I have made for my college project application that is made on flutter.
