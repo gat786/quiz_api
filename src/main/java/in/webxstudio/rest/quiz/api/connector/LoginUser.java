@@ -17,7 +17,7 @@ public class LoginUser {
 	
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Boolean LoginWithData(UserProfile givenData) {
+	public Boolean loginWithData(UserProfile givenData) {
 		Connection connect = null;
 		Boolean result;
 		try {

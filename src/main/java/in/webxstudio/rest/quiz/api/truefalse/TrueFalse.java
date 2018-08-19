@@ -12,7 +12,7 @@ import in.webxstudio.rest.quiz.api.models.SingleAnswer;
 public class TrueFalse {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public String QuestionsBase() {
+	public String questionBase() {
 		String index="<h3>You're in Multiple Choice Home Select Your Subject</h3> "
 				+ "		<br>For Science <a href='/webapi/boolean/science'>Click here</a>"
 				+ "		<br>For History <a href='/webapi/boolean/history'>Click here</a>"
@@ -28,7 +28,7 @@ public class TrueFalse {
 	@Path("science")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<SingleAnswer> Science() {
+	public List<SingleAnswer> science() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("science_boolean");
@@ -40,7 +40,7 @@ public class TrueFalse {
 	@Path("history")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> History() {
+	public  List<SingleAnswer> history() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("history_boolean");
@@ -52,7 +52,7 @@ public class TrueFalse {
 	@Path("geography")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> Geography() {
+	public  List<SingleAnswer> geography() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("geography_boolean");
@@ -64,7 +64,7 @@ public class TrueFalse {
 	@Path("computers")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> ComputerScience() {
+	public  List<SingleAnswer> computerScience() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("computers_boolean");
@@ -76,7 +76,7 @@ public class TrueFalse {
 	@Path("films")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> Films() {
+	public  List<SingleAnswer> films() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("films_boolean");
@@ -88,7 +88,7 @@ public class TrueFalse {
 	@Path("mythology")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> Mythology() {
+	public  List<SingleAnswer> mythology() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("mythology_boolean");
@@ -100,7 +100,7 @@ public class TrueFalse {
 	@Path("sports")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<SingleAnswer> Sports() {
+	public  List<SingleAnswer> sports() {
 		GetBoolean single=new GetBoolean();
 		List<SingleAnswer> data=new ArrayList<>();
 		data=single.getBoolean("sports_boolean");

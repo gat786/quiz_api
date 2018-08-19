@@ -16,7 +16,7 @@ public class Register {
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String resgisterUser(UserProfile unregisteredUser) {
+	public String registerUser(UserProfile unregisteredUser) {
 		UserProfile newProfile=unregisteredUser;
 		RegisterUser registerer=new RegisterUser();
 		String result = registerer.saveDataToBase(newProfile);

@@ -9,16 +9,12 @@ import in.webxstudio.rest.quiz.api.models.*;
 
 public class GetMultiple {
 		
-		private Connection connect = null;
 		
-		private ResultSet set;
-		
-		
-		public GetMultiple(){
-		}
-		
-		public List<Multiple> GetMultipleData(String table_name)
+		public List<Multiple> getMultipleData(String table_name)
 		{
+			Connection connect = null;
+			ResultSet set;
+			
 			List<Multiple> data=new ArrayList<>();
 			
 			try 

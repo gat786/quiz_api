@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 public class Questions{
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public String QuestionsBase()  {
+	public String questionsBase()  {
 		String index="<h3>You're in Multiple Choice Home Select Your Subject</h3> "
 				+ "		<br>For Science <a href='/webapi/multiple/science'>Click here</a>"
 				+ "		<br>For History <a href='/webapi/multiple/history'>Click here</a>"
@@ -31,10 +31,10 @@ public class Questions{
 	@GET
 	@Path("science")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> Science() {
+	public List<Multiple> science() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("science_easy_multiple");
+		data=multiple.getMultipleData("science_easy_multiple");
 		return data;
 	}
 	
@@ -44,10 +44,10 @@ public class Questions{
 	@Path("history")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> History() {
+	public List<Multiple> history() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("history_easy_multiple");
+		data=multiple.getMultipleData("history_easy_multiple");
 		return data;
 	}
 	
@@ -56,10 +56,10 @@ public class Questions{
 	@Path("geography")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> Geography() {
+	public List<Multiple> geography() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("geography_easy_multiple");
+		data=multiple.getMultipleData("geography_easy_multiple");
 		return data;
 	}
 	
@@ -68,10 +68,10 @@ public class Questions{
 	@Path("computers")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> ComputerScience() {
+	public List<Multiple> computerScience() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("computers_easy_multiple");
+		data=multiple.getMultipleData("computers_easy_multiple");
 		return data;
 	}
 	
@@ -80,10 +80,10 @@ public class Questions{
 	@Path("films")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> Films() {
+	public List<Multiple> films() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("films_easy_multiple");
+		data=multiple.getMultipleData("films_easy_multiple");
 		return data;
 	}
 	
@@ -92,10 +92,10 @@ public class Questions{
 	@Path("mythology")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> Mythology() {
+	public List<Multiple> mythology() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("mythology_easy_multiple");
+		data=multiple.getMultipleData("mythology_easy_multiple");
 		return data;
 	}
 	
@@ -104,10 +104,10 @@ public class Questions{
 	@Path("sports")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Multiple> Sports() {
+	public List<Multiple> sports() {
 		GetMultiple multiple=new GetMultiple();
 		List<Multiple> data=new ArrayList<>();
-		data=multiple.GetMultipleData("sports_easy_multiple");
+		data=multiple.getMultipleData("sports_easy_multiple");
 		return data;
 	}
 }

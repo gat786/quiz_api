@@ -19,7 +19,7 @@ public class Scores {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ScoreModel> getScoreList(ScoreModel score) {
 		SaveScore saver=new SaveScore();
-		saver.SaveScoreToDb(score);
+		saver.saveScoreToDb(score);
 		List<ScoreModel> scores=saver.getTopTenScore();
 		return scores;
 	}

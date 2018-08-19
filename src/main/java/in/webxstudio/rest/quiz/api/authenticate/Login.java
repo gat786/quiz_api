@@ -18,7 +18,7 @@ public class Login {
 	public Boolean LoginUser(UserProfile profile) {
 		Boolean result;
 		LoginUser logger=new LoginUser();
-		result=logger.LoginWithData(profile);
+		result=logger.loginWithData(profile);
 		return result;
 	}
 }

@@ -12,11 +12,10 @@ import java.util.List;
 
 
 public class SaveScore {
-	private Connection connect = null;
-	public SaveScore(){}
+	private Connection connect;
 
 	@SuppressWarnings("resource")
-	public String SaveScoreToDb(ScoreModel score) {
+	public String saveScoreToDb(ScoreModel score) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
