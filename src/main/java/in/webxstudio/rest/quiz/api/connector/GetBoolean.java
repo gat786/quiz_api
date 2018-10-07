@@ -34,7 +34,7 @@ public class GetBoolean {
 			List<Integer> questionIds=randomGenerator(count);
 
 			for(Integer question:questionIds){
-				PreparedStatement statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
+				statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
 				set=statement.executeQuery();
 				while(set.next()) 
 				{
