@@ -45,12 +45,13 @@ public class GetMultiple {
 				}
 			}
 			connect.close();
+			data=returnData;
 		}
 		catch(SQLException | ClassNotFoundException e) 
 		{
 			e.printStackTrace();
 		}
-		return dataRetrive;
+		return data;
 	}
 
 	List<Integer> randomGenerator(int maxNumber){
