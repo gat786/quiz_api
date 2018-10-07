@@ -17,39 +17,49 @@ public class GetBoolean {
 		Connection connect = null;
 		ResultSet set;
 		List<SingleAnswer> data=new ArrayList<>();
-		
+		int count=0;
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect=DriverManager.getConnection("jdbc:mysql://"+DatabaseInfo.dbHostUrl+":3306/"+DatabaseInfo.dbName, DatabaseInfo.dbUsername,DatabaseInfo.dbPassword);
-			SingleAnswer dataRetrive;
+			SingleAnswer dataRetrieve;
 			List<SingleAnswer> returnData=new ArrayList<>();
-			PreparedStatement statement=connect.prepareStatement("select * from "+table_name+";");
+			PreparedStatement statement=connect.prepareStatement("select count(*) from "+table_name+";");
 			set=statement.executeQuery();
-			while(set.next()) 
-			{
-				dataRetrive=new SingleAnswer(set.getString(1),set.getString(2));
-				returnData.add(dataRetrive);
+			while(set.next()){
+				count=set.getInt(1);
+			}
+			System.out.println(count);
+
+			List<int> questionIds=randomGenerator(count);
+
+			for(int question:questionIds){
+				PreparedStatement statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
+				set=statement.executeQuery();
+				while(set.next()) 
+				{
+					dataRetrive=new SingleAnswer(set.getString(2),set.getString(3));
+					returnData.add(dataRetrieve);
+				}
 			}
 			connect.close();
 			System.out.println("Data retrieved Successfully");
-			data=returnData;
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		return dataRetrieve;
+	}
+
+	List<int> randomGenerator(int maxNumber){
 		Random rand=new Random();
 		List<Integer> questionsList=new ArrayList<>(); 
 		while (questionsList.size()<10) {
-			int number=rand.nextInt(data.size());
+			int number=rand.nextInt(maxNumber);
 			if(!questionsList.contains( number))
 				questionsList.add(number);
 		}
-		List<SingleAnswer> dataReturnable=new ArrayList<>();
-		for(int a:questionsList) {
-			dataReturnable.add(data.get(a));
-		}
-		return dataReturnable;
+		return questionsList;
 	}
 	
 }
