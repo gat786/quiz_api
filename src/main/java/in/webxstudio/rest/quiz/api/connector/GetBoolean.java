@@ -38,17 +38,18 @@ public class GetBoolean {
 				set=statement.executeQuery();
 				while(set.next()) 
 				{
-					dataRetrive=new SingleAnswer(set.getString(2),set.getString(3));
+					dataRetrieve=new SingleAnswer(set.getString(2),set.getString(3));
 					returnData.add(dataRetrieve);
 				}
 			}
+			data=returnData;
 			connect.close();
 			System.out.println("Data retrieved Successfully");
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return dataRetrieve;
+		return data;
 	}
 
 	List<int> randomGenerator(int maxNumber){
