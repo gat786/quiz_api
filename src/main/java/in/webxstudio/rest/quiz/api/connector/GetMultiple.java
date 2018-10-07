@@ -34,9 +34,9 @@ public class GetMultiple {
 
 			System.out.println(count);
 
-			List<int> questionNumbers=randomGenerator(count);
+			List<Integer> questionNumbers=randomGenerator(count);
 
-			for (int question:questionNumbers){
+			for (Integer question:questionNumbers){
 				PreparedStatement statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
 				set=statement.executeQuery();
 				while(set.next()){
@@ -53,7 +53,7 @@ public class GetMultiple {
 		return dataRetrive;
 	}
 
-	List<int> randomGenerator(int maxNumber){
+	List<Integer> randomGenerator(int maxNumber){
 		Random rand=new Random();
 		List<Integer> questionsList=new ArrayList<>(); 
 		while (questionsList.size()<10) {
