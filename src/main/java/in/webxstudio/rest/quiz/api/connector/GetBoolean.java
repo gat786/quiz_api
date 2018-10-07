@@ -31,28 +31,27 @@ public class GetBoolean {
 			}
 			System.out.println(count);
 
-			List<int> questionIds=randomGenerator(count);
+			List<Integer> questionIds=randomGenerator(count);
 
-			for(int question:questionIds){
+			for(Integer question:questionIds){
 				PreparedStatement statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
 				set=statement.executeQuery();
 				while(set.next()) 
 				{
-					dataRetrieve=new SingleAnswer(set.getString(2),set.getString(3));
+					dataRetrive=new SingleAnswer(set.getString(2),set.getString(3));
 					returnData.add(dataRetrieve);
 				}
 			}
-			data=returnData;
 			connect.close();
 			System.out.println("Data retrieved Successfully");
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return data;
+		return dataRetrieve;
 	}
 
-	List<int> randomGenerator(int maxNumber){
+	List<Integer> randomGenerator(int maxNumber){
 		Random rand=new Random();
 		List<Integer> questionsList=new ArrayList<>(); 
 		while (questionsList.size()<10) {
