@@ -37,7 +37,7 @@ public class GetMultiple {
 			List<Integer> questionNumbers=randomGenerator(count);
 
 			for (Integer question:questionNumbers){
-				PreparedStatement statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
+				statement=connect.prepareStatement("select * from "+table_name+" where id="+question+";");
 				set=statement.executeQuery();
 				while(set.next()){
 					dataRetrive=new Multiple(set.getString(2),set.getString(3),set.getString(4),set.getString(5),set.getString(6));
